@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: 246 244 239;
+  --card: 255 255 255;
+  --ink: 28 27 25;
+  --muted: 112 108 100;
+  --line: 226 222 213;
+  --accent: 214 104 36;
+  --good: 34 139 84;
+  --warn: 196 136 18;
+  --bad: 196 60 52;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: 21 21 19;
+    --card: 31 30 28;
+    --ink: 236 233 226;
+    --muted: 150 145 136;
+    --line: 54 52 48;
+    --accent: 240 136 64;
+    --good: 76 186 122;
+    --warn: 226 172 60;
+    --bad: 232 100 90;
+  }
+}
+
+html, body { background: rgb(var(--paper)); color: rgb(var(--ink)); }
+body { -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .card { @apply rounded-xl border border-line bg-card; }
+  .label { @apply text-[11px] font-mono uppercase tracking-[0.12em] text-muted; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-ink text-paper hover:opacity-90; }
+  .btn-accent { @apply btn bg-accent text-white hover:opacity-90; }
+  .btn-ghost { @apply btn border border-line hover:bg-paper; }
+  .input { @apply w-full rounded-lg border border-line bg-card px-3 py-2 text-sm outline-none focus:border-accent; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-0.5 text-xs text-muted; }
+}
+
+@keyframes pulse-dot { 0%, 100% { opacity: .3 } 50% { opacity: 1 } }
+.pulse-dot { animation: pulse-dot 1.2s ease-in-out infinite; }

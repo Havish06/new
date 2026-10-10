@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+backend/.env
+backend/*.db
+backend/*.db-*
+backend/uploads/
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+# Agent
+workspace_agent/agent_config.json
+
+# Misc
+.DS_Store
+frontend/tsconfig.tsbuildinfo
